@@ -13,11 +13,10 @@ I started extracting an Authentication into a gem but could not find enough time
 Like Hanami Framework. Do not expect magic. There is no Magic. The developer should have control on their code. This is only one way of doing it. **I am tired of magic**. Thanks.
 
 ## Features
-- Book(s)
-- User Authentication **(Signup, Signin, ResetPassword)**
-- User Authorisation **(Roles)**  
+- User Management **(Signup, Signin, ResetPassword)**
+- Authentication **(Check if request is allowed)**
+- Authorisation **(Roles/Permissions)**
 - File Uploading
-- And more...
 
 ## What to expect
 - Author
