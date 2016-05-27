@@ -10,7 +10,7 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     dotenv (2.1.1)
-    hanami (0.7.2)
+    hanami (0.7.3)
       bundler (~> 1.6)
       dotenv (~> 2.0)
       hanami-assets (~> 0.2)
@@ -60,11 +60,11 @@ GEM
     minitest (5.9.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
-    puma (3.1.0)
+    puma (3.4.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rake (11.1.2)
+    rake (10.5.0)
     sequel (4.34.0)
     shotgun (0.9.1)
       rack (>= 1.0)
@@ -81,12 +81,12 @@ PLATFORMS
 DEPENDENCIES
   bundler
   capybara
-  hanami (= 0.7.2)
+  hanami (= 0.7.3)
   hanami-model (~> 0.5)
   hanami-utils
   minitest
   puma
-  rake
+  rake (= 10.5.0)
 
 BUNDLED WITH
    1.11.2
