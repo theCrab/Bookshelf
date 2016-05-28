@@ -1,4 +1,4 @@
-/db/bookshelf_development
-/db/bookshelf_test
+/db/bookshelf_development.sqlite
+/db/bookshelf_test.sqlite
 /public/assets*
 /tmp
