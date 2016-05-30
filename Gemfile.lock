@@ -51,6 +51,7 @@ GEM
     http_router (0.11.2)
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
+    jwt (1.5.4)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     mime-types (3.1)
@@ -85,6 +86,7 @@ DEPENDENCIES
   hanami (= 0.7.3)
   hanami-model (~> 0.5)
   hanami-utils
+  jwt
   minitest
   puma
   rake (= 10.5.0)
