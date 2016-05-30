@@ -1,8 +1,10 @@
 module Web::Controllers::Books
   class Create
     include Web::Action
+    include Authentication::Skip
 
     expose :book
+
     params do
       param :book do
         param :title, presence: true

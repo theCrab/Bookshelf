@@ -1,4 +1,4 @@
-# require 'jwt'
+require_relative 'fumikiri'
 
 module Authentication
   module Skip
@@ -30,20 +30,23 @@ module Authentication
   end
 
   def token_payload
-    token_in_header  = request.env.fetch('Authentication')
-    token_in_session = session['auth_token']
+    token_in_header  = request.env['Authentication']
 
-    token_in_session ? token_in_session : token_in_header.sub(/Bearer\s/, '')
+    # redirect_to '/' unless token_in_header
+    # token_in_session = sessions['auth_token']
+
+    # token_in_session ? token_in_session : token_in_header.sub(/Bearer\s/, '')
+    token_in_header ? token_in_header.sub(/Bearer\s/, '') : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0ZXN0IjoiZGF0YSJ9._sLPAGP-IXgho8BkMGQ86N2mah7vDyn0L5hOR4UkfoI'
   end
 
   def decoded_token
-    Fumikiri.verify({ data: token_payload, dothis: 'verify' })
+    Fumikiri.new({ data: token_payload, dothis: 'verify' }).call
   end
 
   def refresh_token
     # Rethink this function for security
     if decoded_token[0]['exp'].to_i > Time.now.to_i
-      Fumikiri.issue({ data: { sub: current_user.id, exp: Time.now + 800407, iss: 'thecrab.com', aud: current_user.role, jti: decoded_token[0][:jti] }, dothis: 'issue' })
+      Fumikiri.new({ data: { sub: current_user.id, exp: Time.now + 800407, iss: 'thecrab.com', aud: current_user.role, jti: decoded_token[0][:jti] }, dothis: 'issue' }).call
     end
   end
 end
