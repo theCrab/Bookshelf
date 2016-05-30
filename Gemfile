@@ -7,6 +7,7 @@ gem 'hanami-model', '~> 0.5'
 gem 'hanami-utils'
 
 gem 'sqlite3'
+gem 'bcrypt'
 gem 'jwt'
 
 gem 'puma'
