@@ -8,7 +8,8 @@ gem 'hanami-utils'
 
 gem 'sqlite3'
 gem 'bcrypt'
-gem 'jwt'
+
+gem 'hanami-fumikiri', path: '/home/x/Work/hanami-fumikiri'
 
 gem 'puma'
 

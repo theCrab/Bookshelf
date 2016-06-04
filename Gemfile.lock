@@ -1,3 +1,11 @@
+PATH
+  remote: /home/x/Work/hanami-fumikiri
+  specs:
+    hanami-fumikiri (0.0.1)
+      hanami-utils
+      jwt
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -10,7 +18,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    coderay (1.1.0)
+    coderay (1.1.1)
     dotenv (2.1.1)
     hanami (0.7.3)
       bundler (~> 1.6)
@@ -60,11 +68,13 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
     minitest (5.9.0)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
-    pry (0.10.1)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
+    pkg-config (1.1.7)
+    pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
@@ -93,9 +103,9 @@ DEPENDENCIES
   bundler
   capybara
   hanami
+  hanami-fumikiri!
   hanami-model
   hanami-utils
-  jwt
   minitest
   pry
   puma
