@@ -4,7 +4,10 @@ Hanami::Model.migration do
       primary_key :id
 
       column :email,         String,   null: false, unique: true, index: true
-      column :password_hash, String,   null: false
+      column :username,      String
+      column :role,          String,   default: 'role:admin'
+      column :jti,           String
+      column :password_hash, String
       column :revoked,       :boolean, default: false
 
       column :created_at, DateTime, null: false

@@ -25,6 +25,9 @@ collection :users do
   attribute :id,             Integer
   attribute :email,          String
   attribute :revoked,        Boolean
+  attribute :username        String
+  attribute :jti,            String
+  attribute :role,           String
   attribute :password_hash,  String
 
   attribute :created_at, DateTime
