@@ -12,7 +12,7 @@ describe 'Signin' do
     visit '/signin'
 
     within '#signin-form' do
-      fill_in 'signin[username]', with: 'saara@crab.com'
+      fill_in 'signin[email]',    with: 'saara@crab.com'
       fill_in 'signin[password]', with: 'secret'
 
       click_button 'Signin'

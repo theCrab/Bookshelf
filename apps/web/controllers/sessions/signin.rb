@@ -6,7 +6,7 @@ module Web::Controllers::Sessions
 
     params do
       param :signin do
-        param :username, presence: true
+        param :email,    presence: true
         param :password, presence: true
       end
     end
@@ -21,8 +21,8 @@ module Web::Controllers::Sessions
     end
 
     private
-    def login_username
-      params.get('signin.username').strip.downcase.gsub(/\s+/, '')
+    def login_email
+      params.get('signin.email').strip.downcase.gsub(/\s+/, '')
     end
 
     def login_password
@@ -30,7 +30,7 @@ module Web::Controllers::Sessions
     end
 
     def user
-      UserRepository.new.find_by_email(login_username)
+      UserRepository.new.find_by_email(login_email)
     end
 
     def valid_password?

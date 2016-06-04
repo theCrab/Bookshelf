@@ -7,7 +7,7 @@ module Web::Views::Sessions
         div class: "uk-form-row" do
           div class: "uk-form-icon" do
             i class: "uk-icon-user"
-            text_field :username, placeholder: "Username", required: '', class: 'uk-form-danger uk-form-large uk-form-width-large'
+            text_field :email, placeholder: "Email", required: '', class: 'uk-form-danger uk-form-large uk-form-width-large'
           end
           # p 'Dont use spaces.', class: 'uk-form-help-block uk-text-small uk-text-muted'
         end
