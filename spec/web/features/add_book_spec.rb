@@ -2,7 +2,7 @@ require 'features_helper'
 
 describe 'Books' do
   after do
-    BookRepository.clear
+    BookRepository.new.clear
   end
 
   it 'can create a new book record' do

@@ -5,7 +5,7 @@ describe Web::Controllers::Users::Signup do
   let(:action) { Web::Controllers::Users::Signup.new }
   # let(:params) { Hash[] }
   after do
-    UserRepository.clear
+    UserRepository.new.clear
   end
 
   describe 'with valid params' do

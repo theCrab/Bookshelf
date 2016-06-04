@@ -6,9 +6,9 @@ describe Web::Controllers::Books::Index do
   let(:params) { Hash[] }
 
   before do
-    BookRepository.clear
+    BookRepository.new.clear
 
-    @book = BookRepository.create(Book.new(title: 'TDD', author: 'Kent Beck'))
+    @book = BookRepository.new.create(Book.new(title: 'TDD', author: 'Kent Beck'))
   end
 
   it 'is successful' do

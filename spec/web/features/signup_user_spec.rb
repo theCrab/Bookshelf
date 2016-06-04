@@ -2,7 +2,7 @@ require 'features_helper'
 
 describe 'Signup' do
   after do
-    UserRepository.clear
+    UserRepository.new.clear
   end
 
   it 'should be successful' do

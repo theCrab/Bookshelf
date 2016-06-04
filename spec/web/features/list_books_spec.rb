@@ -2,10 +2,10 @@ require 'features_helper'
 
 describe 'List books' do
   before do
-    BookRepository.clear
+    BookRepository.new.clear
 
-    BookRepository.create(Book.new(title: 'Siku Njema', author: 'Ken Walibora'))
-    BookRepository.create(Book.new(title: '1984', author: 'George Orwell'))
+    BookRepository.new.create(Book.new(title: 'Siku Njema', author: 'Ken Walibora'))
+    BookRepository.new.create(Book.new(title: '1984', author: 'George Orwell'))
   end
 
   it 'should be successful' do

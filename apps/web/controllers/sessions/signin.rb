@@ -30,7 +30,7 @@ module Web::Controllers::Sessions
     end
 
     def user
-      UserRepository.find_by_email(login_username)
+      UserRepository.new.find_by_email(login_username)
     end
 
     def valid_password?

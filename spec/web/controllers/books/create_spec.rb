@@ -6,7 +6,7 @@ describe Web::Controllers::Books::Create do
   # let(:params) { Hash[book: { title: 'The Concubines', author: 'Nicholai Gogol' }] }
 
   before do
-    BookRepository.clear
+    BookRepository.new.clear
   end
 
   describe 'with valid params' do

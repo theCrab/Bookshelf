@@ -3,9 +3,9 @@ require 'features_helper'
 describe 'Signin' do
 
   before do
-    UserRepository.clear
+    UserRepository.new.clear
 
-    UserRepository.create(User.new(email: 'saara@crab.com', password: 'secret'))
+    UserRepository.new.create(User.new(email: 'saara@crab.com', password: 'secret'))
   end
 
   it 'should be success' do
