@@ -3,7 +3,7 @@ require 'bcrypt'
 class User
   include Hanami::Entity
 
-  attributes :email, :password, :password_hash, :revoked, :role, :jti, :updated_at, :created_at
+  attributes :email, :password, :password_hash, :revoked, :role, :jti, :username, :updated_at, :created_at
 
   def initialize(params={})
     params = params.to_h ## Had to hack around this one :/
