@@ -9,7 +9,7 @@ gem 'hanami-utils'
 gem 'sqlite3'
 gem 'bcrypt'
 
-gem 'hanami-fumikiri', path: '/home/x/Work/hanami-fumikiri'
+gem 'hanami-fumikiri', github: 'theCrab/hanami-fumikiri', branch: 'guest'
 
 gem 'puma'
 

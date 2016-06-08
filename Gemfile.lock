@@ -1,5 +1,7 @@
-PATH
-  remote: /home/x/Work/hanami-fumikiri
+GIT
+  remote: git://github.com/theCrab/hanami-fumikiri.git
+  revision: 3faaef25f2bc23e9b6773f6b1b04961b9a51dc85
+  branch: guest
   specs:
     hanami-fumikiri (0.0.1)
       hanami-utils
