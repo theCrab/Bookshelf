@@ -2,3 +2,4 @@
 /db/bookshelf_test.sqlite
 /public/assets*
 /tmp
+Gemfile.lock
