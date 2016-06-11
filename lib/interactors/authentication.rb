@@ -17,36 +17,33 @@ module Authentication
 
   private
   def authenticate!
-    redirect_to '/signin' unless authenticated?
+    redirect_to '/signin' if authenticated?
   end
 
   def authenticated?
-    ! current_user.nil?
+    current_user.nil?
   end
 
   def current_user
-    # @current_user = UserRepository.find(id: decoded_token[0]['sub'])
-    true
+    return nil unless token_payload
+    @current_user = UserRepository.find(decoded_token.result[0]['sub'])
   end
 
   def token_payload
-    token_in_header  = request.env['Authentication']
-
-    # redirect_to '/' unless token_in_header
-    # token_in_session = sessions['auth_token']
-
-    # token_in_session ? token_in_session : token_in_header.sub(/Bearer\s/, '')
-    token_in_header ? token_in_header.sub(/Bearer\s/, '') : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0ZXN0IjoiZGF0YSJ9._sLPAGP-IXgho8BkMGQ86N2mah7vDyn0L5hOR4UkfoI'
+    # token_in_header  = request.env['Authentication'] &&
+    request.env['Authentication'] #
+    # token_in_session = request.env['auth_token']
+    # token_in_header ? token_in_header : token_in_session
   end
 
   def decoded_token
-    Fumikiri.new({ data: token_payload, dothis: 'verify' }).call
+    Fumikiri.new({ data: token_payload.sub(/Bearer\s/, ''), dothis: 'verify' }).call
   end
 
   def refresh_token
     # Rethink this function for security
     if decoded_token[0]['exp'].to_i > Time.now.to_i
-      Fumikiri.new({ data: { sub: current_user.id, exp: Time.now + 800407, iss: 'thecrab.com', aud: current_user.role, jti: decoded_token[0][:jti] }, dothis: 'issue' }).call
+      Fumikiri.new({ data: { sub: current_user.id, exp: Time.now + 800407, iss: 'thecrab.com', aud: 'role:admin' }, dothis: 'issue' }).call
     end
   end
 end

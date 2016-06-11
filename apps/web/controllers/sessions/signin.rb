@@ -3,6 +3,7 @@ require 'bcrypt'
 module Web::Controllers::Sessions
   class Signin
     include Web::Action
+    include Authentication::Skip
 
     params do
       param :signin do
@@ -15,8 +16,9 @@ module Web::Controllers::Sessions
       if params.valid?
         authenticate_user
         self.headers.merge!({ 'Authentication' => "Bearer #{@token.result}" })
+        self.session[:auth_token] = @token.result
 
-        redirect_to "/"
+        redirect_to "/users/#{user.id}"
       end
     end
 
@@ -39,7 +41,7 @@ module Web::Controllers::Sessions
 
     def authenticate_user
       if !user.nil? && valid_password?
-        payload = { data: { sub: user.id, exp: (Time.now + 800407).to_i, aud: 'admin' }, dothis: 'issue' }
+        payload = { data: { sub: user.id, iat: Time.now.to_i, exp: Time.now.to_i + 800407, aud: 'role:admin' }, dothis: 'issue' }
         @token = Fumikiri.new(payload).call
       end
     end

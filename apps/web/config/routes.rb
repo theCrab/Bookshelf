@@ -8,5 +8,7 @@ post '/books',    to: 'books#create'
 
 get '/signup',    to: 'users#new'
 post '/signup',   to: 'users#signup'
+get '/users/:id', to: 'users#show'
+
 get '/signin',    to: 'sessions#new'
 post '/signin',   to: 'sessions#signin'

@@ -21,7 +21,7 @@ class Fumikiri
 
   private
   def verify
-    JWT.decode(@payload[:data], ENV['JWT_SECRET'], true, { algorithm: 'HS256' })
+    JWT.decode(@payload[:data], ENV['JWT_SECRET'], true, { verify_iat: true, iat: true, verify_aud: true, aud: 'admin' })
   end
 
   def issue

@@ -5,7 +5,7 @@ describe 'Signin' do
   before do
     UserRepository.clear
 
-    UserRepository.create(User.new(email: 'saara@crab.com', password: 'secret'))
+    @user = UserRepository.create(User.new(email: 'saara@crab.com', password: 'secret'))
   end
 
   it 'should be success' do
@@ -18,7 +18,8 @@ describe 'Signin' do
       click_button 'Signin'
     end
 
-    current_path.must_equal('/')
+    current_path.must_equal("/users/#{@user.id}")
     page.status_code.must_equal(200)
+    page.body.must_include(@user.email)
   end
 end
