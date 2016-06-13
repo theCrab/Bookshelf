@@ -25,18 +25,12 @@ module Authentication
   end
 
   def current_user
-    # @current_user = UserRepository.find(id: decoded_token[0]['sub'])
-    true
+    return @current_user = nil if token_payload.nil? || token_payload.size == 0
+    @current_user = UserRepository.find(decoded_token[0]['sub'])
   end
 
   def token_payload
-    token_in_header  = request.env['Authentication']
-
-    # redirect_to '/' unless token_in_header
-    # token_in_session = sessions['auth_token']
-
-    # token_in_session ? token_in_session : token_in_header.sub(/Bearer\s/, '')
-    token_in_header ? token_in_header.sub(/Bearer\s/, '') : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0ZXN0IjoiZGF0YSJ9._sLPAGP-IXgho8BkMGQ86N2mah7vDyn0L5hOR4UkfoI'
+    request.env.fetch('Authentication', '').sub(/Bearer\s/, '')
   end
 
   def decoded_token

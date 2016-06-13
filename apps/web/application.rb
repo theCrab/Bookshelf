@@ -145,7 +145,7 @@ module Web
         #
         # In order to skip stylesheet compression comment the following line
         stylesheet_compressor :builtin
-
+        compile false
         # Specify sources for assets
         #
         sources << [

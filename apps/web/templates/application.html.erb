@@ -3,9 +3,14 @@
   <head>
     <title>Hanami::Bookshelf</title>
     <%= favicon %>
+    <%= stylesheet 'uikit.min', 'uikit.almost-flat.min' %>
   </head>
   <body>
     <h1>Bookshelf</h1>
     <%= yield %>
+
+    <!-- Javascript -->
+    <%= javascript 'uikit.min' %>
+
   </body>
 </html>

@@ -3,6 +3,7 @@ require 'bcrypt'
 module Web::Controllers::Sessions
   class Signin
     include Web::Action
+    include Authentication::Skip
 
     params do
       param :signin do
